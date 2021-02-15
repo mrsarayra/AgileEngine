@@ -18,3 +18,6 @@ NOT IMPLEMENTED due to unexpected life factors and time limits)
 3- asserts  
 4- configurable re-caching after a period of time  
 5- duplications constraint in DB
+
+
+P.S. Pull requests has better code quality and took me +20min
