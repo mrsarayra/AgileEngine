@@ -1,8 +1,8 @@
 package com.mrsarayra.agileengine.classes;
 
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 public final class ResponseToken {
 
     private boolean auth;

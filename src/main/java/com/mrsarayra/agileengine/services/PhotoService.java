@@ -11,6 +11,7 @@ import org.springframework.util.Assert;
 
 import java.util.List;
 
+import static com.mrsarayra.agileengine.dao.PhotoEntity.ORIGINAL_ID_FIELD;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 @Service
@@ -41,6 +42,14 @@ public class PhotoService extends AbstractService<PhotoEntity> {
         Assert.isTrue(termDef.length == 2, "Term must have value");
         Query query = new Query(where(termDef[0]).is(termDef[1]));
         return mongoTemplate.find(query, getEntityClass());
+    }
+
+
+    public PhotoEntity findByOriginalId(String originalId) {
+        Assert.hasText(originalId, "Id cannot be blank");
+        Query query = new Query(where(ORIGINAL_ID_FIELD).is(originalId));
+        List<PhotoEntity> photoEntities = mongoTemplate.find(query, getEntityClass());
+        return !photoEntities.isEmpty() ? photoEntities.get(0) : null;
     }
 
 }

@@ -27,7 +27,7 @@ public class SearchController {
 
     @GetMapping("/images/{id}")
     public ResponseEntity<PhotoEntity> getById(@PathVariable(name = "id") String id) {
-        return ResponseEntity.ok(photoService.findById(id));
+        return ResponseEntity.ok(photoService.findByOriginalId(id));
     }
 
 }
